@@ -10,18 +10,16 @@ const ChatFeed = (props) => {
     const chat = chats && chats[activeChat];
     
     // console.log(chat, userName, messages)
-    const renderReadRecipeints = (message, isMyMessage) => {
-        return chat.people.map((person, index) => person.last_read === message.id && (
+    const renderReadRecipeints = (message, isMyMessage) => chat.people.map((person, index) => person.last_read === message.id && (
             <div
                 key = {`read_${index}`}
                 className = "read-recipient"
                 style = {{
                     float: isMyMessage ? 'right' : 'left',
-                    backgroundImage: `url(${person?.person?.avatar})`
+                    backgroundImage: person.person.avatar && `url(${person.person.avatar})`,
                 }}
             />
-        ))
-    }
+        ));
 
     const renderMessages = () => {
         const keys = Object.keys(messages);
