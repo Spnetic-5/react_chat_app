@@ -11,7 +11,13 @@ const handleSubmit = (e) => {
     try {
         // username | password => chatengine -> give messages
         await axios.get('https://api.chatengine.io/chats', {headers : authobject});
+        localStorage.setItem('username', username)
+        localStorage.setItem('password', password)
+        window.location.reload()
+        
+
         // works out -> logged in
+
     }catch(error) {
         // error -> Try with new username
     }
