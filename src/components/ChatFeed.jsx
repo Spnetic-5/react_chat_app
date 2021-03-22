@@ -13,13 +13,13 @@ const ChatFeed = (props) => {
     const renderReadRecipeints = (message, isMyMessage) => chat.people.map((person, index) => person.last_read === message.id && (
             <div
                 key = {`read_${index}`}
-                className = "read-recipient"
+                className = "read-receipt"
                 style = {{
                     float: isMyMessage ? 'right' : 'left',
                     backgroundImage: person.person.avatar && `url(${person.person.avatar})`,
                 }}
             />
-        ));
+        )); 
 
     const renderMessages = () => {
         const keys = Object.keys(messages);
@@ -41,10 +41,10 @@ const ChatFeed = (props) => {
                         {renderReadRecipeints(message,isMyMessage)}
                         </div>                     
                 </div>
-            )
-        })   
-    }
-if (!chat) return 'Loading... ';
+            );
+        }) ;  
+    };
+if (!chat) return <div />;
 
     return (
     <div>
@@ -65,6 +65,6 @@ if (!chat) return 'Loading... ';
         </div>
     </div>
 );
-}
+};
 
 export default ChatFeed; 
