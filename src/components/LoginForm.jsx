@@ -9,16 +9,18 @@ const handleSubmit = (e) => {
     e.preventDefault();
     const authobject = { 'Project-ID': '2b719952-c365-46bf-b04d-898e14577138', 'User-Name': username, 'User-Secret':password };
     try {
-        axios.get('https://api.chatengine.io/chats')
-    } catch(error) {
-
+        // username | password => chatengine -> give messages
+        await axios.get('https://api.chatengine.io/chats', {headers : authobject});
+        // works out -> logged in
+    }catch(error) {
+        // error -> Try with new username
     }
 
 
 
-    // username | password => chatengine -> give messages
-    // works out -> logged in
-    // error -> Try with new username
+    
+   
+    
 }
 
 return(
