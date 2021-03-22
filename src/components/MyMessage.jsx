@@ -1,4 +1,4 @@
-const MyMessage = (message) => {
+const MyMessage = ({message}) => {
     
     if (message?.attachments?.lenght>0){
         return (
